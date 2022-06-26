@@ -44,4 +44,13 @@ class UserController extends Controller
             ],'Authentication failed', 500);
         }
     }
+
+    public function login(Request $request)
+    {
+        try {
+            //code...
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+    }
 }

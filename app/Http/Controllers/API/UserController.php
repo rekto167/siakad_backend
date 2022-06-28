@@ -13,6 +13,10 @@ use Laravel\Fortify\Rules\Password;
 
 class UserController extends Controller
 {
+    public function user(Request $request)
+    {
+        return $request->user();
+    }
     public function register(Request $request)
     {
         try {

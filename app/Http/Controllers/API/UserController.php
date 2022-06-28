@@ -15,7 +15,7 @@ class UserController extends Controller
 {
     public function user(Request $request)
     {
-        return $request->user();
+        return ResponseFormatter::success($request->user(), 'Successfully fetch user data');
     }
     public function register(Request $request)
     {
@@ -84,7 +84,7 @@ class UserController extends Controller
         } catch (Exception $error) {
             return ResponseFormatter::error([
                 'message' => 'Something went wrong',
-                'error' => $error
+                'error' => $error->getMessage()
             ], 'Authentication failed', 500);
         }
     }

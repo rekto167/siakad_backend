@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\ClassroomController;
 use App\Http\Controllers\API\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -20,4 +21,11 @@ Route::post('login', [UserController::class, 'login']);
 
 Route::middleware('auth:sanctum')->group(function(){
   Route::get('user', [UserController::class, 'user']);
+  Route::get('users', [UserController::class, 'users']);
+  Route::prefix('list')->group(function(){
+    Route::get('kelas', [ClassroomController::class, 'index']);
+  });
+  Route::prefix('create')->group(function(){
+    Route::post('kelas', [ClassroomController::class, 'store']);
+  });
 });

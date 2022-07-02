@@ -17,6 +17,15 @@ class UserController extends Controller
     {
         return ResponseFormatter::success($request->user(), 'Successfully fetch user data');
     }
+
+    public function users()
+    {
+        $users = User::all();
+        return ResponseFormatter::success(
+            $users
+        , 'Semua data user berhasil diambil');
+    }
+
     public function register(Request $request)
     {
         try {

@@ -5,11 +5,17 @@ namespace App\Http\Controllers\API;
 use Exception;
 use App\Helpers\ResponseFormatter;
 use App\Http\Controllers\Controller;
+use App\Models\Team;
 use App\Models\User;
+use Illuminate\Auth\Access\Gate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Fortify\Rules\Password;
+use Laravel\Jetstream\Events\InvitingTeamMember;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Validator;
+use Laravel\Jetstream\Mail\TeamInvitation;
 
 class UserController extends Controller
 {

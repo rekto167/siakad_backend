@@ -10,4 +10,9 @@ class Schedule extends Model
     use HasFactory;
     protected $table = 'schedule';
     protected $guarded = ['id'];
+    
+    public function days()
+    {
+      return $this->hasMany(Days::class, 'id', 'day_id');
+    }
 }

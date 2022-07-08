@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\API\ClassroomController;
 use App\Http\Controllers\API\MapelController;
+use App\Http\Controllers\API\ScheduleController;
 use App\Http\Controllers\API\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -16,7 +17,10 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
+Route::prefix('schedule')->group(function(){
+  Route::get('/', [ScheduleController::class, 'index']);
+  Route::post('create', [ScheduleController::class, 'create']);
+});
 Route::post('register', [UserController::class, 'register']);
 Route::post('login', [UserController::class, 'login']);
 

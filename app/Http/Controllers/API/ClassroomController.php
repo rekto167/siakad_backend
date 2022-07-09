@@ -21,6 +21,12 @@ class ClassroomController extends Controller
         return ResponseFormatter::success($class);
     }
 
+    public function classrooms()
+    {
+        $classroom = Classroom::all();
+        return ResponseFormatter::success($classroom, 'Data Kelas berhasil diambil');
+    }
+
     /**
      * Store a newly created resource in storage.
      *

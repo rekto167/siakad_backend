@@ -24,4 +24,10 @@ class MapelController extends Controller
         $mapel = Mapel::create($data);
         return ResponseFormatter::success($mapel, 'Mata pelajaran berhasil ditambahkan');
     }
+
+    public function mapels()
+    {
+        $mapels = Mapel::all();
+        return ResponseFormatter::success($mapels, 'Data daftar mata pelajaran berhasil diambil');
+    }
 }

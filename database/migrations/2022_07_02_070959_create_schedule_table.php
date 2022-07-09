@@ -15,6 +15,7 @@ class CreateScheduleTable extends Migration
     {
         Schema::create('schedule', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('classroom_id')->references('id')->on('classroom');
             $table->foreignId('mapel_id')->references('id')->on('mapel');
             $table->foreignId('pengajar')->references('id')->on('users');
             $table->foreignId('day_id');

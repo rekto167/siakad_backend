@@ -29,7 +29,9 @@ Route::middleware('auth:sanctum')->group(function(){
   Route::get('users', [UserController::class, 'users']);
   Route::prefix('list')->group(function(){
     Route::get('kelas', [ClassroomController::class, 'index']);
+    Route::get('classes', [ClassroomController::class, 'classrooms']);
     Route::get('mapel', [MapelController::class, 'index']);
+    Route::get('mapels', [MapelController::class, 'mapels']);
   });
   Route::prefix('create')->group(function(){
     Route::post('kelas', [ClassroomController::class, 'store']);

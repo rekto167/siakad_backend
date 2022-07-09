@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\ClassroomController;
+use App\Http\Controllers\API\DaysController;
 use App\Http\Controllers\API\MapelController;
 use App\Http\Controllers\API\ScheduleController;
 use App\Http\Controllers\API\UserController;
@@ -32,6 +33,7 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::get('classes', [ClassroomController::class, 'classrooms']);
     Route::get('mapel', [MapelController::class, 'index']);
     Route::get('mapels', [MapelController::class, 'mapels']);
+    Route::get('days', [DaysController::class, 'days']);
   });
   Route::prefix('create')->group(function(){
     Route::post('kelas', [ClassroomController::class, 'store']);

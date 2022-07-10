@@ -20,7 +20,6 @@ use Illuminate\Support\Facades\Route;
 */
 Route::prefix('schedule')->group(function(){
   Route::get('/', [ScheduleController::class, 'index']);
-  Route::post('create', [ScheduleController::class, 'create']);
 });
 Route::post('register', [UserController::class, 'register']);
 Route::post('login', [UserController::class, 'login']);
@@ -39,4 +38,5 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::post('kelas', [ClassroomController::class, 'store']);
     Route::post('mapel', [MapelController::class, 'create']);
   });
+Route::post('tambahjadwal', [ScheduleController::class, 'create']);
 });

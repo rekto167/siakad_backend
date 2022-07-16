@@ -19,7 +19,17 @@ class ScheduleController extends Controller
    public function create(Request $request)
    {
      try {
-      return $request->all();
+      $data = [
+        'classroom_id' => $request->kelas,
+        'mapel_id' => $request->mapel,
+        'pengajar' => $request->guru,
+        'day_id' => $request->hari,
+        'start_time'=>$request->waktu_awal,
+        'end_time'=>$request->waktu_akhir
+      ];
+      $jadwal = Schedule::create($data);
+
+      return ResponseFormatter::success($jadwal, 'Berhasil menambahkan jadwal pelajaran');
      } catch (Exception $error) {
       return ResponseFormatter::error($error, 'Something went wrong');
      }

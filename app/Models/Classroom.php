@@ -10,4 +10,10 @@ class Classroom extends Model
     use HasFactory;
     protected $table = 'classroom';
     protected $guarded = ['id'];
+
+    public function schedule()
+    {
+        return $this->belongsTo(Schedule::class);
+    }
+    
 }

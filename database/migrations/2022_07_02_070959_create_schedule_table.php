@@ -15,12 +15,12 @@ class CreateScheduleTable extends Migration
     {
         Schema::create('schedule', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('classroom_id')->references('id')->on('classroom');
-            $table->foreignId('mapel_id')->references('id')->on('mapel');
-            $table->foreignId('pengajar')->references('id')->on('users');
+            $table->foreignId('classroom_id');
+            $table->foreignId('mapel_id');
+            $table->foreignId('pengajar');
             $table->foreignId('day_id');
-            $table->time('start_time');
-            $table->time('end_time');
+            $table->string('start_time');
+            $table->string('end_time');
             $table->timestamps();
         });
     }

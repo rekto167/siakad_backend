@@ -38,5 +38,6 @@ Route::middleware('auth:sanctum')->group(function(){
   Route::prefix('create')->group(function(){
     Route::post('kelas', [ClassroomController::class, 'store']);
     Route::post('mapel', [MapelController::class, 'create']);
+    Route::post('jadwal', [ScheduleController::class, 'create']);
   });
 });

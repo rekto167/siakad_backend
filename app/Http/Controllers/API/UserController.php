@@ -51,12 +51,15 @@ class UserController extends Controller
                 'password' => Hash::make($request->password)
             ]);
 
+            $user->assignRole('user');
+
             $token = $user->createToken('authToken')->plainTextToken;
 
             return ResponseFormatter::success([
                 'token' => $token,
                 'user' => $user
             ],'Register berhasil');
+
         } catch (Exception $error) {
             return ResponseFormatter::error([
                 'error' => $error->getMessage(),
@@ -87,6 +90,12 @@ class UserController extends Controller
             if(!Hash::check($request->password, $user->password, []))
             {
                 throw new Exception('Invalid credential');
+            }
+
+            if($user->status == false){
+                return ResponseFormatter::error([
+                    'user' => $user,
+                ], 'Akun anda belum aktif', 401);
             }
             
             // token

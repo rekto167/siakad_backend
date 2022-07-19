@@ -95,7 +95,8 @@ class UserController extends Controller
             if($user->status == false){
                 return ResponseFormatter::error([
                     'user' => $user,
-                ], 'Akun anda belum aktif', 401);
+                    'error' => 'user non-active'
+                ], 'Akun anda belum aktif', 403);
             }
             
             // token
